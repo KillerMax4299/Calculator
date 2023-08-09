@@ -1,5 +1,4 @@
 
-import { useRef } from "react";
 import { MdOutlineBackspace } from "react-icons/md";
 const Buttons = ({ text, col , UpdateExp,Calculate}) => {
   let style;
@@ -15,12 +14,12 @@ const Buttons = ({ text, col , UpdateExp,Calculate}) => {
     if(e.target.value == '=')
       Calculate()
     else  
-      UpdateExp(text)
+    UpdateExp(text)
   }
 
   switch (col) {
     case "dark":
-      style = `font-medium flex justify-center items-center text-2xl w-auto min-w-[5rem] h-16 rounded bg-zinc-700 text-white 
+      style = `flex justify-center items-center text-2xl w-auto min-w-[5rem] h-16 rounded bg-zinc-700 text-white 
       ring-1 ring-blue-50/[0] active:bg-zinc-700
       transition-all duration-200 hover:bg-zinc-600 active:ring-blue-50`;
       break;
