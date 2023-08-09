@@ -9,6 +9,10 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontFamily: {
+      'sans': ['Roboto'],
+      
+    },
     extend: {},
   },
   plugins: [],
