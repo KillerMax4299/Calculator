@@ -5,10 +5,11 @@ import ButtonList from "./ButtonList";
 const UIElements = () => {
   const [exp, setExp] = useState("");
   const [text, setText] = useState("");
-  
+  const [res, setRes] = useState("");
 
   useEffect(() => {
     setText(exp.replaceAll("*", "×").replaceAll("/", "÷"));
+  
   }, [exp]);
 
   function UpdateExp(e) {
@@ -25,7 +26,7 @@ const UIElements = () => {
   return (
     <div className="flex justify-center mb-24">
       <div className="grid grid-cols-4 gird-rows-6 gap-2 w-[30rem] max-[500px]:w-[27rem] max-[450px]:w-[24rem] max-[380px]:w-[21rem]">
-        <Textbox exp={text} />
+        <Textbox exp={text} res={res}/>
         <ButtonList UpdateExp={UpdateExp} Calculate={Calculate}/>
       </div>
     </div>

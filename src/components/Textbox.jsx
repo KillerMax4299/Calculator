@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { MdHistory } from "react-icons/md";
+import useLocalStorage from "../customHooks/UseLocalStorage";
 
-const Textbox = ({ exp }) => {
+const Textbox = ({ exp, res }) => {
   const [font_size, setFont_Size] = useState(48);
   const [brk_pts, setBrk_pts] = useState([]);
-  const [res, setRes] = useState("");
   const spanbox = useRef();
   const parentSpan = useRef();
 
@@ -13,14 +13,29 @@ const Textbox = ({ exp }) => {
   }
 
   useEffect(() => {
-    // Math.floor(spanbox.current.getBoundingClientRect().width
 
     if (Math.ceil(spanbox.current.getBoundingClientRect().width) > parentSpan.current.clientWidth && font_size > 16) {
       decreaseFont();
       setBrk_pts((prevBrk_pts) => [...prevBrk_pts, exp.length - 1]);
     }
 
-    // setRes(prevbrk_pts=>[...prevbrk_pts]);
+  }, [exp]);
+
+  useEffect(() => {
+    
+    if(brk_pts.length > 0 && exp.length <= brk_pts[0]){
+      setFont_Size(48)
+    }
+    else if(brk_pts.length > 0 && exp.length <= brk_pts[1] && exp.length > brk_pts[0]){
+      setFont_Size(40)
+    }
+    else if(brk_pts.length > 0 && exp.length <= brk_pts[2] && exp.length > brk_pts[1]){
+      setFont_Size(32)
+    }
+    else if(brk_pts.length > 0 && exp.length <= brk_pts[3] && exp.length > brk_pts[2]){
+      setFont_Size(24)
+    }
+
   }, [exp]);
 
   return (
