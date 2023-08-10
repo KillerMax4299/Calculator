@@ -9,7 +9,6 @@ const UIElements = () => {
 
   useEffect(() => {
     setText(exp.replaceAll("*", "×").replaceAll("/", "÷"));
-  
   }, [exp]);
 
   function UpdateExp(e) {

@@ -41,7 +41,7 @@ const Textbox = ({ exp, res }) => {
   return (
     <div className="rounded-lg border-2 w-auto h-36 bg-zinc-900 row-span-2 col-span-full relative">
       <div className="flex flex-col justify-end h-3/5 text-white text-right p-1 px-4">
-        <History />
+        {/* ]<History /> */}
         <span
           ref={parentSpan}
           className="ml-2 font-light font-mono overflow-hidden"
