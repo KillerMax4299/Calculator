@@ -45,14 +45,10 @@ const Textbox = ({ exp, res }) => {
         <span
           ref={parentSpan}
           className="ml-2 font-light font-mono overflow-hidden"
-        >
-          <span
-            ref={spanbox}
-            style={{ fontSize: `${font_size}px`, lineHeight: "1" }}
-            className="w-fit max-w-full duration-300 transition-all"
-          >
-            {exp}
-          </span>
+        > {exp == 'Math err' ? 
+        <span ref={spanbox} style={{ fontSize: `${font_size}px`, lineHeight: "1" }} className="w-fit max-w-full text-red-400 duration-300 transition-all">{exp}</span> :
+          <span ref={spanbox} style={{ fontSize: `${font_size}px`, lineHeight: "1" }} className="w-fit max-w-full duration-300 transition-all">{exp}</span> }
+          
         </span>
       </div>
       <div className="h-2/5 text-zinc-400/70 font-normal text-right p-1 px-4">

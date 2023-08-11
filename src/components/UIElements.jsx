@@ -10,22 +10,25 @@ const UIElements = () => {
   const [res, setRes] = useState("");
 
   useEffect(() => {
-    setText(exp.replaceAll("*", "×").replaceAll("/", "÷").replace(/^\./g, '0.'));
-    
-    if(exp.match(/\D\./g)){
-      setExp(exp.replace(/.$/, '0.'));
+    setText(
+      exp.replaceAll("*", "×").replaceAll("/", "÷").replace(/^\./g, "0.")
+    );
+
+    if (exp.match(/\D\./g)) {
+      setExp(exp.replace(/.$/, "0."));
     }
 
-    if(exp == 'Math err'){
-      setRes('press C to clear')
+    if (exp == "Math err") {
+      setRes("press C to clear");
     }
     try {
-      setRes(math.evaluate(exp).toString());
+      let regex = /^(?![+\-*/%])[\d().+*/%-]*(?=.*[-+*/%])[-+*/%()\d.]+[%\d.]$/;
+      if (regex.test(exp)) {
+        setRes(math.evaluate(exp).toString());
+      } else setRes("");
+    } catch (err) {
+      setRes("");
     }
-    catch{
-      setRes('')
-    }
-    
   }, [exp]);
 
   function UpdateExp(e) {
@@ -35,17 +38,18 @@ const UIElements = () => {
       if (exps.includes(e) && exps.includes(lastChar)) {
         setExp(exp.replace(/.$/, e));
       }
-      if(lastChar == '.' && e == ".") {
-        setExp(exp.replace(/.$/, '.'));
+      if (lastChar == "." && e == ".") {
+        setExp(exp.replace(/.$/, "."));
       }
-      if(lastChar == '%' && e == "%") {
-        setExp(exp.replace(/.$/, '%'));
+      if (lastChar == "%" && e == "%") {
+        setExp(exp.replace(/.$/, "%"));
       }
     } else if (e == "Del" && exp.length > 0)
       setExp(exp.slice(0, exp.length - 1));
     else if (e == "C") {
       setExp("");
-    }if(exp == "Math err" && e != 'C'){
+    }
+    if (exp == "Math err" && e != "C") {
       setExp("Math err");
     }
   }
@@ -54,9 +58,8 @@ const UIElements = () => {
     if (exp.length > 0) {
       try {
         setExp(math.evaluate(exp).toString());
-        
       } catch (error) {
-        setExp("Math err")
+        setExp("Math err");
       }
     }
   }
