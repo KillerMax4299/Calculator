@@ -5,4 +5,4 @@ A generic calculator made with React and TailwindCSS
 * Created using TailwindCSS 
 * Inspired from Material Design
 
-![Alt text](image.png)
+![screenshot](image.png)
