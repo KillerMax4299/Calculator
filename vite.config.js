@@ -7,61 +7,29 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType:'prompt',
-      workbox: {
-        globPatterns: ["**/*"],
-      },
-      // add this to cache all the
-      // static assets in the public folder
-      includeAssets: ["**/*"],
       manifest: {
-        name: "React-vite-app",
-        short_name: "react-vite-app",
-        description: "I am a simple vite app",
+        name: "vite-react-ts-100",
+        short_name: "vite-react-ts-100",
+        start_url: "/",
+        display: "standalone",
+        background_color: "#ffffff",
+        lang: "en",
+        scope: "/",
         icons: [
           {
-            src: "android/android-launchericon-512-512.png",
-            sizes: "512x512",
-            type: "image/png",
-            purpose: "any maskable",
-          },
-          {
-            src: "android/android-launchericon-192-192.png",
+            src: "/android-chrome-192x192.png",
             sizes: "192x192",
             type: "image/png",
             purpose: "any maskable",
           },
           {
-            src: "android/android-launchericon-144-144.png",
-            sizes: "144x144",
-            type: "image/png",
-            purpose: "any maskable",
-          },
-          {
-            src: "android/android-launchericon-96-96.png",
-            sizes: "96x96",
-            type: "image/png",
-            purpose: "any maskable",
-          },
-          {
-            src: "android/android-launchericon-72-72.png",
-            sizes: "72x72",
-            type: "image/png",
-            purpose: "any maskable",
-          },
-          {
-            src: "android/android-launchericon-48-48.png",
-            sizes: "48x48",
+            src: "/android-chrome-512x512.png",
+            sizes: "512x512",
             type: "image/png",
             purpose: "any maskable",
           },
         ],
-        theme_color: "#171717",
-        background_color: "#f0e7db",
-        display: "standalone",
-        scope: "/",
-        start_url: "/",
-        orientation: "portrait",
+        theme_color: "#ffffff",
       },
     }),
   ],
