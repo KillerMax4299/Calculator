@@ -12,7 +12,7 @@ export default defineConfig({
         short_name: "Calculator",
         start_url: "/",
         display: "standalone",
-        background_color: "#ffffff",
+        background_color: "#0f0f0f",
         lang: "en",
         scope: "/",
         icons: [
@@ -29,7 +29,7 @@ export default defineConfig({
             purpose: "any maskable",
           },
         ],
-        theme_color: "#ffffff",
+        theme_color: "#0f0f0f",
       },
     }),
   ],
