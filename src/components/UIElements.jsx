@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import Textbox from "./Textbox";
 import ButtonList from "./ButtonList";
+import useLocalStorage from "../customHooks/UseLocalStorage";
 
 const UIElements = () => {
   let exps = ["/", "*", "-", "+"];
 
-  const [exp, setExp] = useState("");
+  const [exp, setExp] = useLocalStorage("exp","");
   const [text, setText] = useState("");
   const [res, setRes] = useState("");
 
